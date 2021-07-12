@@ -77,6 +77,26 @@ const AddSkillForm = () => {
                                             </Grid>
 
                                             <Grid item>
+                                                <Typography variant="p" component="p">
+                                                    Select Your Current role :
+                                                </Typography>
+                                                <Select
+                                                    labelId="demo-controlled-open-select-label"
+                                                    id="demo-controlled-open-select"
+
+                                                >
+                                                    <MenuItem value="">
+                                                        <em>None</em>
+                                                    </MenuItem>
+                                                    <MenuItem value={10}>Ten</MenuItem>
+                                                    <MenuItem value={20}>Twenty</MenuItem>
+                                                    <MenuItem value={30}>Thirty</MenuItem>
+                                                </Select>
+                                            </Grid>
+
+                                            <Grid item>
+
+
                                                 {/* <Button variant="contained" color="primary" className="login_btn">
                                                     Login
                                                 </Button> */}
