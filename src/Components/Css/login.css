@@ -1,0 +1,26 @@
+.from-paper {
+  height: 500px;
+  width: 480px;
+  margin-top: 100px;
+  background-color: azure;
+}
+
+.typograph_title {
+  padding-top: 80px;
+}
+
+.email-grid-item {
+  padding-top: 20px;
+}
+
+.form_input {
+  height: 100px;
+  width: 290px;
+}
+.login_btn {
+  width: 250px;
+}
+
+.forgot_pass_link {
+  margin-top: 20px;
+}
