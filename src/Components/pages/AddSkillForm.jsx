@@ -6,21 +6,38 @@ import {
     Typography,
     TextField,
     Button,
-    Link,
     FormControl,
+    Box,
+    InputAdornment,
+    OutlinedInput,
+    IconButton,
 } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
-import FormLabel from "@material-ui/core/FormLabel";
 import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { NavLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import AddIcon from "@material-ui/icons/Add";
 
+
+const useStyles = makeStyles({
+    label: {
+        fontWeight: "bold",
+        marginBottom: 5,
+    },
+
+    buttonContainer: {
+        display: 'flex',
+        marginRight: 40
+    }
+});
 
 const AddSkillForm = () => {
+    const classes = useStyles();
+
     return (
         <>
             <div>
@@ -28,84 +45,163 @@ const AddSkillForm = () => {
                     <Grid item xs={12}>
                         <Grid container justifyContent="center" direction="row">
                             <Paper variant="outlined" elevation={0} className="addfrom-paper">
-                                <Typography
-                                    variant="h4"
-                                    component="h4"
-                                    className="skill_form_titile"
-                                >
-                                    Step 1/3 : Add Your Skills
-                                </Typography>
+                                <Grid item>
+                                    <Typography
+                                        variant="h4"
+                                        component="h4"
+                                        className="skill_form_titile"
+                                    >
+                                        Step 1/3 : Add Your Skills
+                                    </Typography>
+                                </Grid>
 
                                 <Grid item>
                                     <Grid container direction="column">
                                         <form>
-                                            <Grid item className="column_radio_btn">
-                                                <FormControl component="fieldset">
-                                                    <FormLabel
-                                                        component="legend"
-                                                        style={{ paddingTop: "30px" }}
+                                            <Box ml={3} mt={6}>
+                                                {" "}
+                                                <Grid item>
+                                                    <FormControl component="fieldset">
+                                                        <Typography
+                                                            variant="subtitle2"
+                                                            className={classes.label}
+                                                        >
+                                                            Are You a working professional or fresher?
+                                                        </Typography>
+                                                        <RadioGroup>
+                                                            <FormControlLabel
+                                                                value="professional"
+                                                                control={<Radio />}
+                                                                label="I am a working professonal"
+                                                            />
+                                                            <FormControlLabel
+                                                                value="fresher"
+                                                                control={<Radio />}
+                                                                label="I am a fresher"
+                                                            />
+                                                        </RadioGroup>
+                                                    </FormControl>
+                                                </Grid>
+                                            </Box>
+
+                                            <Grid item>
+                                                <Box mt={2} ml={3}>
+                                                    <Typography
+                                                        variant="subtitle2"
+                                                        className={classes.label}
                                                     >
-                                                        Are You a working professional or fresher
-                                                    </FormLabel>
-                                                    <RadioGroup style={{ paddingTop: "10px" }}>
-                                                        <FormControlLabel
-                                                            value="i am a working professonal"
-                                                            control={<Radio />}
-                                                            label="i am a working professonal"
-                                                            className="radio_btn"
+                                                        How Many Years of experience do you have ? Dont't
+                                                        include internships
+                                                    </Typography>
+                                                    <FormControl variant="outlined">
+                                                        <OutlinedInput
+                                                            id="outlined-adornment-weight"
+                                                            placeholder="e.g, 2.4"
+                                                            endAdornment={
+                                                                <InputAdornment position="end">
+                                                                    Years
+                                                                </InputAdornment>
+                                                            }
+                                                            aria-describedby="outlined-weight-helper-text"
+                                                            inputProps={{
+                                                                "aria-label": "experience",
+                                                            }}
+                                                            labelWidth={0}
                                                         />
-                                                        <FormControlLabel
-                                                            value="i am a fresher"
-                                                            control={<Radio />}
-                                                            label=" i am a fresher"
-                                                        />
-                                                    </RadioGroup>
-                                                </FormControl>
+                                                    </FormControl>
+                                                </Box>
                                             </Grid>
 
                                             <Grid item>
-                                                <Typography variant="p" component="p">
-                                                    How Many Years of experience do you have ? Dont't
-                                                    include Internships
-                                                </Typography>
-                                                <TextField
-                                                    id="outlined-basic"
-                                                    variant="outlined"
-                                                    size="small"
-                                                // style={{ width: "290px", paddingTop: "10px" }}
-                                                />
+                                                <Box mt={2} ml={3}>
+                                                    <FormControl variant="outlined">
+                                                        <Typography
+                                                            variant="subtitle2"
+                                                            className={classes.label}
+                                                        >
+                                                            Select Your Current role :
+                                                        </Typography>
+                                                        <Select
+                                                            labelId="demo-controlled-open-select-label"
+                                                            id="demo-controlled-open-select"
+                                                        >
+                                                            <MenuItem value={10}>
+                                                                Full-Stack Developer
+                                                            </MenuItem>
+                                                            <MenuItem value={20}>React Developer</MenuItem>
+                                                            <MenuItem value={30}>NodeJs Developer</MenuItem>
+                                                        </Select>
+                                                    </FormControl>
+                                                </Box>
                                             </Grid>
 
                                             <Grid item>
-                                                <Typography variant="p" component="p">
-                                                    Select Your Current role :
-                                                </Typography>
-                                                <Select
-                                                    labelId="demo-controlled-open-select-label"
-                                                    id="demo-controlled-open-select"
+                                                <Box mt={2} ml={3}>
+                                                    <Typography
+                                                        variant="subtitle2"
+                                                        className={classes.label}
+                                                    >
+                                                        Add up to 4 skills and how much expertise you have
+                                                        with each.
+                                                    </Typography>
 
-                                                >
-                                                    <MenuItem value="">
-                                                        <em>None</em>
-                                                    </MenuItem>
-                                                    <MenuItem value={10}>Ten</MenuItem>
-                                                    <MenuItem value={20}>Twenty</MenuItem>
-                                                    <MenuItem value={30}>Thirty</MenuItem>
-                                                </Select>
-                                            </Grid>
+                                                    <Grid
+                                                        container
+                                                        spacing={2}
+                                                        justifyContent="space-between"
+                                                    >
+                                                        <Grid item xs={5}>
+                                                            <TextField
+                                                                fullWidth
+                                                                required
+                                                                placeholder="Skill"
+                                                                type="text"
+                                                                size="medium"
+                                                                variant="outlined"
+                                                            />
+                                                        </Grid>
+                                                        <Grid item xs={5}>
+                                                            <FormControl fullWidth variant="outlined">
+                                                                <Select
+                                                                    labelId="expertiseOptions"
+                                                                    id="expertise"
+                                                                >
+                                                                    <MenuItem value="">
+                                                                        <em>None</em>
+                                                                    </MenuItem>
+                                                                    <MenuItem value={1}>Fresher</MenuItem>
+                                                                    <MenuItem value={2}>Fresher</MenuItem>
+                                                                    <MenuItem value={3}>Fresher</MenuItem>
+                                                                </Select>
+                                                            </FormControl>
+                                                        </Grid>
+                                                        <Grid xs={2}>
+                                                            <IconButton color="secondary">
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        </Grid>
+                                                    </Grid>
 
-                                            <Grid item>
+                                                    <Box my={2}>
+                                                        <Button
+                                                            variant="contained"
+                                                            color="primary"
+                                                            startIcon={<AddIcon />}
+                                                        >
+                                                            Add Skill
+                                                        </Button>
+                                                    </Box>
+                                                    <Grid item>
+                                                        <Box mt={4} justifyContent="flex-end" className={classes.buttonContainer}>
+                                                            <Button variant="contained" color="primary">
+                                                                <NavLink to="/job_pefrence" style={{ textDecoration: "none", color: "white" }}>
+                                                                    Next
+                                                                </NavLink>
+                                                            </Button>
 
-
-                                                {/* <Button variant="contained" color="primary" className="login_btn">
-                                                    Login
-                                                </Button> */}
-
-                                                {/* <Typography style={{ marginTop: "20px" }}>
-                                                    <Link hre="#"  >
-                                                        forget password ?
-                                                    </Link>
-                                                </Typography> */}
+                                                        </Box>
+                                                    </Grid>
+                                                </Box>
                                             </Grid>
                                         </form>
                                     </Grid>

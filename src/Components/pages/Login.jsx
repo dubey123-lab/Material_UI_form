@@ -1,66 +1,120 @@
-import { Grid, Paper, Typography, TextField, Button, Link } from "@material-ui/core";
+import { Grid, Paper, Typography, TextField, Button, Link, Box } from "@material-ui/core";
 import React from "react";
 import "../Css/login.css";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    subtitle2: {
+        fontWeight: 700
+    },
+    paper: {
+        height: 550,
+        width: 355
+    },
+    item: {
+        marginLeft: 65
+    },
+    root: {
+        width: 200,
+
+    },
+    loginbtn: {
+        width: 225
+    }
+
+})
 
 const Login = () => {
+
+    const classes = useStyles();
+
     return (
         <>
             <div>
                 <Grid container>
                     <Grid item xs={12}>
                         <Grid container justifyContent="center" direction="row">
-                            <Paper variant="outlined" elevation={0} className="from-paper">
-                                <Typography
-                                    variant="h4"
-                                    component="h4"
-                                    className="typograph_title"
-                                >
-                                    Login
-                                </Typography>
+                            <Box mt={5}>
+                                <Paper variant="outlined" className={classes.paper}>
+                                    <Typography
+                                        variant="h4"
+                                        component="h4"
+                                        className="typograph_title"
+                                    >
+                                        Login
+                                    </Typography>
 
-                                <Grid item>
-                                    <Grid container direction="column">
+                                    <Grid item>
+
                                         <form>
-                                            <Grid item className="email-grid-item">
+                                            <Grid item className={classes.item}>
+                                                <Box mt={5} >
+                                                    <Typography
+                                                        variant="subtitle2"
+                                                        className={classes.subtitle2}
+                                                    >
+                                                        Email Address
+                                                    </Typography>
+                                                </Box>
+
                                                 <TextField
-                                                    id="email_address"
-                                                    placeholder="Enter Email Address"
-                                                    type="email"
+                                                    id="outlined-basic"
                                                     variant="outlined"
-                                                    className="form_input"
+                                                    size="small"
+
                                                 />
                                             </Grid>
 
-                                            <Grid item>
+
+
+                                            <Grid item className={classes.item}>
+                                                <Box mt={2}>
+                                                    <Typography
+                                                        variant="subtitle2"
+                                                        className={classes.subtitle2}
+                                                    >
+                                                        Enter Password
+                                                    </Typography>
+                                                </Box>
+
                                                 <TextField
-                                                    id="password"
-                                                    placeholder="Enter Password"
-                                                    label="Password"
-                                                    type="password"
+                                                    id="outlined-basic"
                                                     variant="outlined"
-                                                    className="form_input"
+                                                    size="small"
+
                                                 />
                                             </Grid>
 
-                                            <Grid item>
-                                                <Button variant="contained" color="primary" className="login_btn">
-                                                    Login
-                                                </Button>
 
-                                                <Typography style={{ marginTop: "20px" }}>
+
+                                            <Grid item className={classes.item}>
+                                                <Box mt={5} >
+                                                    <Button variant="contained" color="primary" className={classes.loginbtn}>
+                                                        Login
+                                                    </Button>
+
+                                                </Box>
+
+
+                                            </Grid>
+
+                                            <Grid item>
+
+                                                <Typography style={{ marginTop: "20px", textAlign: "center" }}>
                                                     <Link hre="#"  >
-                                                        forget password ?
+                                                        Forget password ?
                                                     </Link>
                                                 </Typography>
                                             </Grid>
                                         </form>
                                     </Grid>
-                                </Grid>
-                            </Paper>
+
+                                </Paper>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
+            </div >
         </>
     );
 };

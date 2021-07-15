@@ -1,16 +1,10 @@
 import "./App.css";
-import Login from "./Components/pages/Login";
-import Signup from "./Components/pages/Signup";
-import OnbordingForm from "./Components/pages/OnbordingForm";
-import AddSkillForm from "./Components/pages/AddSkillForm";
+import Routes from "./route";
 function App() {
   return (
     <>
       <div className="App">
-        {/* <Login /> */}
-        {/* <Signup /> */}
-        {/* <OnbordingForm /> */}
-        <AddSkillForm />
+        <Routes />
       </div>
     </>
   );
